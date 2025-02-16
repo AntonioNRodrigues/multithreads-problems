@@ -23,9 +23,7 @@ class BarrierTask implements Runnable {
 public class CyclicBarrierExample {
     public static void main(String[] args) {
         int numberOfThreads = 3;
-        CyclicBarrier barrier = new CyclicBarrier(numberOfThreads, () -> {
-            System.out.println("All threads have reached the barrier.");
-        });
+        CyclicBarrier barrier = new CyclicBarrier(numberOfThreads, () -> System.out.println("All threads have reached the barrier."));
 
         for (int i = 0; i < numberOfThreads; i++) {
             new Thread(new BarrierTask(barrier)).start();
